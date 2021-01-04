@@ -180,6 +180,9 @@ This worked on my win7 + git-for-windows combo:
 
 ### Git Branches
 
+#### Git list remote branches
+> git remote show origin
+
 #### Git Show branch history graph
 > git log --graph --all --oneline
 
