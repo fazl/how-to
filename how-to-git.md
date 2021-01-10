@@ -164,6 +164,19 @@ Summary:
 ### Git Quick diff in console
 > git diff --word-diff=color <file>
 
+### Git amend the very last commit
+
+Say you goof up the commit message and hit return too soon:
+>  git commit -m "Oops bad commit message" file1 file2 ...
+
+Say you also forgot _file3_.. 
+- You can add such changes to the last commit.  
+- You can also fix the commit message  
+Do it like this ***before you push the changes***:
+```
+ git add file3 #forgotten in last commit
+ git commit --amend -m "Corrected commit message"
+```
 ### Git discard uncommitted changes
 
 Trick: _stash_ the changes then _drop_ that stash
