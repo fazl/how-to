@@ -165,8 +165,15 @@ Summary:
 > git diff --word-diff=color <file>
 
 ### Git discard uncommitted changes
+
 Trick: _stash_ the changes then _drop_ that stash
 > git stash && git stash drop
+
+Canonical way to discard _all_ uncommitted changes in project:
+> git reset --hard HEAD
+
+Canonical way to discard changes in _one specific_ file:
+> git checkout -- MyGoofedUpFile.java
 
 ### Git config needing admin rights
 If git complains it's unable to lock a gitconfig file, try running Gitbash as admin
