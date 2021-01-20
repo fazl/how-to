@@ -13,12 +13,13 @@ Table of Contents
     * [List all headers included by code](#list-all-headers-included-by-code)
   * [Git](#git)
     * [Install/Setup Git &amp; Maven, on Windows](#installsetup-git--maven-on-windows)
-    * [Git Quick diff in console](#git-quick-diff-in-console)
+    * [Git aliases](#git-aliases)
     * [Git amend the very last commit](#git-amend-the-very-last-commit)
+    * [Git diff word\-by\-word](#git-diff-word-by-word)
     * [Git discard uncommitted changes](#git-discard-uncommitted-changes)
     * [Git config needing admin rights](#git-config-needing-admin-rights)
     * [Git forgets Github credentials](#git-forgets-github-credentials)
-    * [Git Quick diff in console](#git-quick-diff-in-console-1)
+    * [Git Quick diff in console](#git-quick-diff-in-console)
     * [Git Branches](#git-branches)
       * [Git list remote branches](#git-list-remote-branches)
       * [Git Show branch history graph](#git-show-branch-history-graph)
@@ -163,8 +164,21 @@ Summary:
  Possibly need in GitBash:
  > export JAVA_HOME=/c/app/Java/jdk1.8.0_241
 
-### Git Quick diff in console
-> git diff --word-diff=color <file>
+### Git aliases
+You can list them via..
+> git config --list --show-origin | less
+.. and check for the entries under section `[aliases]`
+
+Useful list:
+- git config alias.s 'status -s' # `git s` shows current branch and status
+- git config alias.co 'checkout' # `git co -` switches to the previous branch
+- git config alias.cob 'checkout -b' # `git cob feature/coolstuff` creates and checks out new branch
+- git config alias.last 'log -1 HEAD' # `git last` shows last commit info
+
+Other useful aliases:
+- List branches, sort by commit date, most recent first:
+> br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+
 
 ### Git amend the very last commit
 
@@ -179,6 +193,9 @@ Do it like this ***before you push the changes***:
  git add file3 #forgotten in last commit
  git commit --amend -m "Corrected commit message"
 ```
+### Git diff word-by-word
+> git diff --word-diff=color <file>
+
 ### Git discard uncommitted changes
 
 Trick: _stash_ the changes then _drop_ that stash
