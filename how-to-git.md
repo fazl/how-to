@@ -165,9 +165,7 @@ Summary:
  > export JAVA_HOME=/c/app/Java/jdk1.8.0_241
 
 ### Git aliases
-You can list them via..
-> git config --list --show-origin | less
-.. and check for the entries under section `[aliases]`
+You can list them via.. `git config --list --show-origin | less` and check section `[aliases]`
 
 Useful list:
 - git config alias.s 'status -s' # `git s` shows current branch and status
