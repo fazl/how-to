@@ -42,6 +42,8 @@ Table of Contents
     * [Markup and multiline notes](#markup-and-multiline-notes)
   * [RabbitMQ](#rabbitmq)
     * [Enable RabbitMQ Tracing](#enable-rabbitmq-tracing)
+  * [Vi editor](#vi-editor)
+    * [How to redo after undo](#how-to-redo-after-undo)
   * [VSCode](#vscode)
     * [Customise keyboard shortcuts](#customise-keyboard-shortcuts)
     * [Select a block of text](#select-a-block-of-text)
@@ -327,6 +329,11 @@ Steps I took to enable rabbit mq tracing:
 C:\Program Files\RabbitMQ Server\rabbitmq_server-3.7.7\sbin>rabbitmqctl.bat trace_on
 C:\Program Files\RabbitMQ Server\rabbitmq_server-3.7.7\sbin>rabbitmq-plugins.bat enable rabbitmq_tracing
 ```
+
+## Vi editor
+
+### How to redo after undo
+It's the ```Ctrl+r``` you're looking for..
 
 ## VSCode
 
