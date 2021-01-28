@@ -199,8 +199,11 @@ Say instead, you simply want to combine small changes that you made in separate 
 Say, while in an online meeting so you couldn't focus on choosing how to commit stuff together.. 
 - You saw a typo and committed the fix
 -  you added a missing ```const``` and committed that.. 
+
 So, this is really neat: 
 http://bit.ly/howto-git-squash-commits-together-b4-pushing
+
+Note the comment about ```rebase --committer-date-is-author-date``` from user @deadbeef
 
 ### Git diff word-by-word
 > git diff --word-diff=color <file>
