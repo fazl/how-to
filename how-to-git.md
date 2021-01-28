@@ -15,6 +15,7 @@ Table of Contents
     * [Install/Setup Git &amp; Maven, on Windows](#installsetup-git--maven-on-windows)
     * [Git aliases](#git-aliases)
     * [Git amend the very last commit](#git-amend-the-very-last-commit)
+    * [Git squash local commits together](#git-squash-local-commits-together)
     * [Git diff word\-by\-word](#git-diff-word-by-word)
     * [Git discard uncommitted changes](#git-discard-uncommitted-changes)
     * [Git config needing admin rights](#git-config-needing-admin-rights)
@@ -193,6 +194,14 @@ Do it like this ***before you push the changes***:
  git add file3 #forgotten in last commit
  git commit --amend -m "Corrected commit message"
 ```
+### Git squash local commits together
+Say instead, you simply want to combine small changes that you made in separate commits into a single commit before pushing out.
+Say, while in an online meeting so you couldn't focus on choosing how to commit stuff together.. 
+- You saw a typo and committed the fix
+-  you added a missing ```const``` and committed that.. 
+So, this is really neat: 
+http://bit.ly/howto-git-squash-commits-together-b4-pushing
+
 ### Git diff word-by-word
 > git diff --word-diff=color <file>
 
