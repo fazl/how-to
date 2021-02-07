@@ -183,17 +183,39 @@ Other useful aliases:
 
 ### Git amend the very last commit
 
+#### Fix the commit message
+
 Say you goof up the commit message and hit return too soon:
 >  git commit -m "Oops bad commit message" file1 file2 ...
 
+You can fix that like this:
+```
+ git commit --amend -m "Corrected commit message"
+```
+#### Add missing changes to commit
+
 Say you also forgot _file3_.. 
 - You can add such changes to the last commit.  
-- You can also fix the commit message  
+- You can also fix the commit message too, at the same time.
 Do it like this ***before you push the changes***:
 ```
  git add file3 #forgotten in last commit
  git commit --amend -m "Corrected commit message"
 ```
+#### Fix wrong author
+Say you accidentally committed using corporate credentials because you had cloned a private repo on a loaned pc.
+You can fix the author easily _before_ pushing the change. Thus:
+- > $ git commit --amend --author="fazl <5173704+fazl@users.noreply.github.com>"
+
+To fix the problem in future commits
+
+- Edit the file .git/config and add or amend the `[user]` section to something like below:
+```
+[user]
+     name = Fazl
+     email = 5173704+fazl@users.noreply.github.com
+```
+
 ### Git squash local commits together
 Say instead, you simply want to combine small changes that you made in separate commits into a single commit before pushing out.
 Say, while in an online meeting so you couldn't focus on choosing how to commit stuff together.. 
