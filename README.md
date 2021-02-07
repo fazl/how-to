@@ -208,7 +208,7 @@ Do it like this ***before you push the changes***:
 #### Fix wrong author
 Say you accidentally committed using corporate credentials because you had cloned a private repo on a loaned pc.
 You can fix the author easily _before_ pushing the change. Thus:
-- > $ git commit --amend --author="fazl <5173704+fazl@users.noreply.github.com>"
+- ``` $ git commit --amend --author="fazl <5173704+fazl@users.noreply.github.com>"```
 
 To fix the problem in future commits
 
