@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 # drops toc from doc 
 # generates new toc from toc-less doc
 # creates 2-liner spacer file
