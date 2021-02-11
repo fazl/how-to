@@ -377,8 +377,12 @@ It's the ```Ctrl+r``` you're looking for..
 ### Customise keyboard shortcuts
 Via menu ```File -> Preferences -> Keyboard Shortcuts```, I searched for _lower_ and _upper_ to find and map the functions that convert to upper-/lower-case to _CTRL+SHIFT+L_  (and _U_, respectively).
 
-### Select a block of text
+### Select rectangular (columnar) block of text
 Place the cursor at start, hold down ```ALT+SHIFT``` and select to the end of your block (opposite corner).
+
+### Regexp search / replace with capture groups
+VSCode's brain damaged regexp replace feature uses _$1 etc instead of \1 etc_ to reference the captured items.  
+_What did you expect from Microflop?!_
 
 
 ## Windows
