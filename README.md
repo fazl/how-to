@@ -50,7 +50,8 @@ Table of Contents
     * [How to redo after undo](#how-to-redo-after-undo)
   * [VSCode](#vscode)
     * [Customise keyboard shortcuts](#customise-keyboard-shortcuts)
-    * [Select a block of text](#select-a-block-of-text)
+    * [Select rectangular (columnar) block of text](#select-rectangular-columnar-block-of-text)
+    * [Regexp search / replace with capture groups](#regexp-search--replace-with-capture-groups)
   * [Windows](#windows)
     * [<em>certutil</em> to checksum a downloaded file](#certutil-to-checksum-a-downloaded-file)
     * [<em>win10</em> no <strong>Insert</strong> key on HP Elitebook](#win10-no-insert-key-on-hp-elitebook)
@@ -59,6 +60,7 @@ Table of Contents
     * [Bypass hibernate restriction <em>win10</em>](#bypass-hibernate-restriction-win10)
     * [Install node\.js on windows](#install-nodejs-on-windows)
   * [Word](#word)
+    * [Search in hyperlinks in word doc](#search-in-hyperlinks-in-word-doc)
     * [Quickly insert date or time](#quickly-insert-date-or-time)
     * [Keyboard shortcut for symbol](#keyboard-shortcut-for-symbol)
     * [Keyboard shortcut for command](#keyboard-shortcut-for-command)
@@ -438,6 +440,11 @@ Discovered [nvm-windows](https://github.com/coreybutler/nvm-windows) really fixe
 1. Finally activate it: with `nvm use 12.16.1`
 
 ## Word
+
+### Search in hyperlinks in word doc
+By default Word doesn't look inside links. You can't even choose an advanced search option to do this.
+[Workaround](https://office-watch.com/2020/find-and-replace-links-in-word-documents) is to _reveal the links_ with `ALT`+`F9` first, then do a normal search (`CTRL`+`F`)
+
 
 ### Quickly insert date or time
 Use ALT+i, t combo accessed the date/time entry in the Text group.
