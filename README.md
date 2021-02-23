@@ -443,7 +443,9 @@ Discovered [nvm-windows](https://github.com/coreybutler/nvm-windows) really fixe
 
 ### Search in hyperlinks in word doc
 By default Word doesn't look inside links. You can't even choose an advanced search option to do this.
-[Workaround](https://office-watch.com/2020/find-and-replace-links-in-word-documents) is to _reveal the links_ with `ALT`+`F9` first, then do a normal search (`CTRL`+`F`)
+[Workaround](https://office-watch.com/2020/find-and-replace-links-in-word-documents):
+- first _reveal the links_ with `ALT`+`F9` 
+- then do a normal search (`CTRL`+`F`)
 
 
 ### Quickly insert date or time
