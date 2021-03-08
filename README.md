@@ -30,6 +30,7 @@ Table of Contents
       * [Create and checkout feature branch off develop](#create-and-checkout-feature-branch-off-develop)
       * [Git list existing branches](#git-list-existing-branches)
       * [Git delete feature branch locally](#git-delete-feature-branch-locally)
+      * [Git rename a remote branch](#git-rename-a-remote-branch)
       * [Git delete a remote branch (needs git v1\.7 or more)](#git-delete-a-remote-branch-needs-git-v17-or-more)
   * [Java](#java)
     * [Set log level (<em>tedious</em>)](#set-log-level-tedious)
@@ -288,6 +289,17 @@ Can't delete local branch  while it is checked out, so first checkout a differen
 ```
 git checkout develop
 git branch -d feature/SEL-1433
+```
+
+#### Git rename a remote branch 
+Example using technique from [sschuberth](https://stackoverflow.com/a/21302474/7409029):
+```
+dev@wsdev58 MINGW64 /c/work/git/PumpUnit (work/IT1928_TherapyMinimalViableProduct)
+$ git push origin origin/327_AdaptSlicerAlgo:refs/heads/work/327_AdaptSlicerAlgo :327_AdaptSlicerAlgo
+Total 0 (delta 0), reused 0 (delta 0)
+To ssh://azdo.corp.itsroot.biz:22/ypsomed/YpsoPumpSystem/_git/PumpUnit
+ - [deleted]         327_AdaptSlicerAlgo
+ * [new branch]      origin/327_AdaptSlicerAlgo -> work/327_AdaptSlicerAlgo
 ```
 
 #### Git delete a remote branch (needs git v1.7 or more)
