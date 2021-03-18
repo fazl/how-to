@@ -173,6 +173,18 @@ Summary:
  Possibly need in GitBash:
  > export JAVA_HOME=/c/app/Java/jdk1.8.0_241
 
+### Git grep 
+Examples from [this stackoverflow post](https://stackoverflow.com/questions/2928584/how-to-grep-search-committed-code-in-the-git-history):
+
+```
+git rev-list --all | xargs git grep <expression>  #Search whole repository
+```
+or
+```
+git grep <regexp> $(git rev-list --all -- lib/util) -- lib/util #for searching only in lib/util
+git rev-list --all -- lib/util | xargs git grep <regexp> -- lib/util #if commandline overflows
+```
+
 ### Git aliases
 You can list them via.. `git config --list --show-origin | less` and check section `[aliases]`
 
