@@ -424,8 +424,8 @@ The ```Ctrl+v``` command starts visual rectangular select mode, then...
 - Usual navigational commands to select block
 - d to cut
 - y to yank (copy)
-- p to paste (after optionaly selecting destination block)
-Cool stuff! Textpad is getting competition here..
+- p to paste (after optionally selecting destination block)  
+Cool stuff! Textpad is getting stiff competition here..
 
 ## VSCode
 
