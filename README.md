@@ -13,6 +13,7 @@ Table of Contents
     * [List all headers included by code](#list-all-headers-included-by-code)
   * [Git](#git)
     * [Install/Setup Git &amp; Maven, on Windows](#installsetup-git--maven-on-windows)
+    * [Git grep](#git-grep)
     * [Git aliases](#git-aliases)
     * [Git amend the very last commit](#git-amend-the-very-last-commit)
       * [Fix the commit message](#fix-the-commit-message)
@@ -47,8 +48,11 @@ Table of Contents
     * [Markup and multiline notes](#markup-and-multiline-notes)
   * [RabbitMQ](#rabbitmq)
     * [Enable RabbitMQ Tracing](#enable-rabbitmq-tracing)
+  * [Sed](#sed)
+    * [In\-place editing of many files](#in-place-editing-of-many-files)
   * [Vi editor](#vi-editor)
     * [How to redo after undo](#how-to-redo-after-undo)
+    * [How to select, copy and paste rectangular blocks](#how-to-select-copy-and-paste-rectangular-blocks)
   * [VSCode](#vscode)
     * [Customise keyboard shortcuts](#customise-keyboard-shortcuts)
     * [Select rectangular (columnar) block of text](#select-rectangular-columnar-block-of-text)
@@ -393,10 +397,35 @@ C:\Program Files\RabbitMQ Server\rabbitmq_server-3.7.7\sbin>rabbitmqctl.bat trac
 C:\Program Files\RabbitMQ Server\rabbitmq_server-3.7.7\sbin>rabbitmq-plugins.bat enable rabbitmq_tracing
 ```
 
+## Sed
+
+### In-place editing of many files
+- Example that replaces a specific text in a bunch of files (listed in a text file). The I switch means Case insensitive search.
+```
+cat list.txt |  
+xargs sed -i 's-Review Status:  <span style="color:green">MIGRATED</span>-Review Status:  <span style="font-weight: bold; color:green">MIGRATED</span>-I
+```
+
+- Example that appends 3 lines of text (after any line containing a specific text) in a bunch of files (here listed by find). Note the two newlines:
+```
+find . -name TC*md | 
+xargs sed -i '/^Review Status: /a <!-- span style="font-weight: bold; color:red">DRAFT</span -->\n<!-- span style="font-weight: bold; color:blue">IN PROGRESS</span -->\n<!-- span style="font-weight: bold; color:green">MIGRATED</span -->
+```
+
+
+
 ## Vi editor
 
 ### How to redo after undo
 It's the ```Ctrl+r``` you're looking for..
+
+### How to select, copy and paste rectangular blocks
+The ```Ctrl+v``` command starts visual rectangular select mode, then...
+- Usual navigational commands to select block
+- d to cut
+- y to yank (copy)
+- p to paste (after optionaly selecting destination block)
+Cool stuff! Textpad is getting competition here..
 
 ## VSCode
 
