@@ -400,19 +400,33 @@ C:\Program Files\RabbitMQ Server\rabbitmq_server-3.7.7\sbin>rabbitmq-plugins.bat
 ## Sed
 
 ### In-place editing of many files
-- Example that replaces a specific text in a bunch of files (listed in a text file). The I switch means Case insensitive search.
+- Replaces a specific text in a bunch of files (listed in a text file). The I switch means Case insensitive search.
 ```
 cat list.txt |  
 xargs sed -i 's-Review Status:  <span style="color:green">MIGRATED</span>-Review Status:  <span style="font-weight: bold; color:green">MIGRATED</span>-I
 ```
 
-- Example that appends 3 lines of text (after any line containing a specific text) in a bunch of files (here listed by find). Note the two newlines:
+- Appends 3 lines of text (after any line containing a specific text) in a bunch of files (here listed by find). Note the two newlines:
 ```
 find . -name TC*md | 
 xargs sed -i '/^Review Status: /a <!-- span style="font-weight: bold; color:red">DRAFT</span -->\n<!-- span style="font-weight: bold; color:blue">IN PROGRESS</span -->\n<!-- span style="font-weight: bold; color:green">MIGRATED</span -->
 ```
 
 
+- Capture groups to shorten color html by replacing `font-weight: bold` style element with markdown around content text 
+```
+find . -name TC\*.md |
+xargs grep -l font-weight: |
+xargs sed -i -E 's/span style="font-weight: bold; color:([^"]*)">([^<]*)</span style="color:\1">**\2**</'
+```
+
+_Note:_ `sed -iE` fails with obscure error about the second replacement capture group reference:
+```
+$ sed -ir 's_\<span style="font-weight: bold; color:([^"]*)">([^<]*)<_<span style="color:\1">**\2**<_' HW/TC103975.md
+sed: -e expression #1, char 90: invalid reference \2 on `s' command's RHS
+```
+
+This was fixed by separate switches `-i` for inplace and `-E` for modern regexps...
 
 ## Vi editor
 
