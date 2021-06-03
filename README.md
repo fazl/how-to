@@ -33,6 +33,8 @@ Table of Contents
       * [Git delete feature branch locally](#git-delete-feature-branch-locally)
       * [Git rename a remote branch](#git-rename-a-remote-branch)
       * [Git delete a remote branch (needs git v1\.7 or more)](#git-delete-a-remote-branch-needs-git-v17-or-more)
+      * [Git show entire history of specific file](#git-show-entire-history-of-specific-file) 
+
   * [Java](#java)
     * [Set log level (<em>tedious</em>)](#set-log-level-tedious)
     * [Set log level (<em>SpringBoot</em>)](#set-log-level-springboot)
@@ -321,6 +323,13 @@ To ssh://azdo.corp.itsroot.biz:22/ypsomed/YpsoPumpSystem/_git/PumpUnit
 #### Git delete a remote branch (needs git v1.7 or more)
 > git push --delete origin feature/SEL-1433
 
+#### Git show entire history of specific file 
+Including history beyond renames and with diffs for each change:
+> git log --follow -p -- path-to-file
+
+
+ 
+ 
 ## Java
 ### Set log level (_tedious_)
 Can set logging level in package _com.foo.bar_ via a system property: `System.setProperty("logging.level.com.foo.bar", "DEBUG");`  
