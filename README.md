@@ -324,8 +324,10 @@ To ssh://azdo.corp.itsroot.biz:22/ypsomed/YpsoPumpSystem/_git/PumpUnit
 > git push --delete origin feature/SEL-1433
 
 #### Git show entire history of specific file 
-Including history beyond renames and with diffs for each change:
-> git log --follow -p -- path-to-file
+Including history beyond renames and with diffs for each change (credit [Dan Moulding](https://stackoverflow.com/a/5493663/7409029) and commenters):
+> git log --follow -p -- path-to-file  
+Also:
+> --stat is also helpful. You can use it together with -p.
 
 
  
