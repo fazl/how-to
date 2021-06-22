@@ -34,6 +34,7 @@ Table of Contents
       * [Git rename a remote branch](#git-rename-a-remote-branch)
       * [Git delete a remote branch (needs git v1\.7 or more)](#git-delete-a-remote-branch-needs-git-v17-or-more)
       * [Git show entire history of specific file](#git-show-entire-history-of-specific-file) 
+      * [Git Copy version of a File Using git show](#git-copy-version-of-a-file-using-git-show) 
 
   * [Java](#java)
     * [Set log level (<em>tedious</em>)](#set-log-level-tedious)
@@ -329,8 +330,30 @@ Including history beyond renames and with diffs for each change (credit [Dan Mou
 Also:
 > --stat is also helpful. You can use it together with -p.
 
-
+#### Git Copy version of a File Using git show
+`TL;DR`: Once I needed to just throw away all the changes made in selected files in a work branch so that when the PR was merged into the target branch these files would not be changed... Lacking a funky tool that lets me compare branches in a comfy way, I used a tip from [w3docs](https://www.w3docs.com/snippets/git/how-to-copy-a-version-of-a-single-file-from-one-git-branch-to-another.html):
  
+> git show commit-hash:path/to/file > path/to/file
+
+ `Details`
+ 
+List the files to process:  
+```
+$ find . -name \*Motor\*.[hc]*  
+./MotorControl/MotorControl.h
+./MotorControl/_Mock/MotorControlMock.cpp
+./TfnCore/_Impl/MotorControlFake/MotorControlFake.h
+./TfnCore/_Impl/MotorControlFake/_Impl/MotorControlFake.c
+./TfnCore/_Impl/MotorControlFake/_Test/UnitTest_MotorControlFake.cpp
+```
+
+- Determine the files modified in current branch relative to that branch thus:  
+> git diff   work/3652_AddIntrospectApis   work/73_TherapyFunctionCore   ./MotorControl/MotorControl.h
+
+- Copy the hash of the commit (branch) where the needed versions are, using e.g. the Git Graph tool in VSCode.  
+- Use the hash with `git show` to replace the contents of the local branch version of selected files thus:   
+> git show 006f8107c5fd067fec99d941430c1f8da65a3fc3:./MotorControl/MotorControl.h   >   ./MotorControl/MotorControl.h
+> ..ditto using ./TfnCore/_Impl/MotorControlFake/_Impl/MotorControlFake.c, etc
  
 ## Java
 ### Set log level (_tedious_)
