@@ -10,6 +10,7 @@ Table of Contents
     * [Find files sorted by timestamp](#find-files-sorted-by-timestamp)
     * [Pick pipeline items to operate on](#pick-pipeline-items-to-operate-on)
   * [C and C\+\+](#c-and-c)
+    * [Start `gdb` to debug an exe with arguments on start](#start-gdb-to-debug-an-exe-with-arguments)
     * [List all headers included by code](#list-all-headers-included-by-code)
   * [Git](#git)
     * [Install/Setup Git &amp; Maven, on Windows](#installsetup-git--maven-on-windows)
@@ -163,6 +164,11 @@ popd
 ```
 
 ## C and C++
+
+### Start gdb to debug an exe with arguments  
+Example adapted from [John Cashew's stackoverflow question](https://stackoverflow.com/q/32676007/7409029):  
+> gdb --args ./SwSwTest_TfnCore -n 4a
+
 ### List all headers included by code
 
 The -M switch does this in Gnu:
