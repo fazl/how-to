@@ -58,6 +58,7 @@ Table of Contents
     * [How to redo after undo](#how-to-redo-after-undo)
     * [How to select, copy and paste rectangular blocks](#how-to-select-copy-and-paste-rectangular-blocks)
   * [VSCode](#vscode)
+    * [VSCode Fix broken TAB key](#vscode-fix-broken-tab-key)
     * [Customise keyboard shortcuts](#customise-keyboard-shortcuts)
     * [Select rectangular (columnar) block of text](#select-rectangular-columnar-block-of-text)
     * [Regexp search / replace with capture groups](#regexp-search--replace-with-capture-groups)
@@ -482,6 +483,13 @@ The ```Ctrl+v``` command starts visual rectangular select mode, then...
 Cool stuff! Textpad is getting stiff competition here..
 
 ## VSCode
+ 
+### VSCode Fix broken TAB key
+Sometimes you accidentally pressed `Ctrl+M` and changed the mode of TAB to be a focus-changing key.  
+Just press `Ctrl+M` again to toggle this.  
+If that is not the fix, try going [here](https://duckduckgo.com/?t=ffab&q=stackover+vscode+tab+key) for more ideas..
+
+
 
 ### Customise keyboard shortcuts
 Via menu ```File -> Preferences -> Keyboard Shortcuts```, I searched for _lower_ and _upper_ to find and map the functions that convert to upper-/lower-case to _CTRL+SHIFT+L_  (and _U_, respectively).
