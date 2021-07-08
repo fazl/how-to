@@ -439,7 +439,36 @@ C:\Program Files\RabbitMQ Server\rabbitmq_server-3.7.7\sbin>rabbitmq-plugins.bat
 ```
 
 ## Sed
+ 
+### Sed multi line editing
 
+ [Credit](https://stackoverflow.com/a/11234322/7409029)
+ 
+ I wanted a script to activate some IGNORED tests like these:
+```
+ // FAILS : Report does not inform about all deliveries
+IGNORE_TEST(TestScenarios, Scenario4a_Tbf)
+```
+ to give 
+```
+ // FAILS : Report does not inform about all deliveries
+TEST(TestScenarios, Scenario4a_Tbf)
+```
+
+ The trick is to:
+ - hunt for the comment marker with `s/^\/\/ FAILS : Report/`
+ - join the next line (with newline) using the `N` command
+ - replace any IGNORE_TEST with just TEST
+ 
+ Thus:
+ 
+ ```
+ sed '/^\/\/ FAILS : Report/ {N; s/IGNORE_TEST/TEST/}' scratch.cpp 
+ ```
+ 
+ You can inplace-edit with the `-i` switch .
+ 
+ 
 ### In-place editing of many files
 - Replaces a specific text in a bunch of files (listed in a text file). The I switch means Case insensitive search.
 ```
