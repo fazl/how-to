@@ -10,7 +10,7 @@ Table of Contents
     * [Find files sorted by timestamp](#find-files-sorted-by-timestamp)
     * [Pick pipeline items to operate on](#pick-pipeline-items-to-operate-on)
   * [C and C\+\+](#c-and-c)
-    * [Start `gdb` to debug an exe with arguments on start](#start-gdb-to-debug-an-exe-with-arguments)
+    * [Start gdb to debug an exe with arguments](#start-gdb-to-debug-an-exe-with-arguments)
     * [List all headers included by code](#list-all-headers-included-by-code)
   * [Git](#git)
     * [Install/Setup Git &amp; Maven, on Windows](#installsetup-git--maven-on-windows)
@@ -34,9 +34,8 @@ Table of Contents
       * [Git delete feature branch locally](#git-delete-feature-branch-locally)
       * [Git rename a remote branch](#git-rename-a-remote-branch)
       * [Git delete a remote branch (needs git v1\.7 or more)](#git-delete-a-remote-branch-needs-git-v17-or-more)
-      * [Git show entire history of specific file](#git-show-entire-history-of-specific-file) 
-      * [Git Copy version of a File Using git show](#git-copy-version-of-a-file-using-git-show) 
-
+      * [Git show entire history of specific file](#git-show-entire-history-of-specific-file)
+      * [Git Copy version of a File Using git show](#git-copy-version-of-a-file-using-git-show)
   * [Java](#java)
     * [Set log level (<em>tedious</em>)](#set-log-level-tedious)
     * [Set log level (<em>SpringBoot</em>)](#set-log-level-springboot)
@@ -53,7 +52,9 @@ Table of Contents
   * [RabbitMQ](#rabbitmq)
     * [Enable RabbitMQ Tracing](#enable-rabbitmq-tracing)
   * [Sed](#sed)
+    * [Sed multi line editing](#sed-multi-line-editing)
     * [In\-place editing of many files](#in-place-editing-of-many-files)
+  * [Selenium example to drive web browser](#selenium-example-to-drive-web-browser)
   * [Vi editor](#vi-editor)
     * [How to redo after undo](#how-to-redo-after-undo)
     * [How to select, copy and paste rectangular blocks](#how-to-select-copy-and-paste-rectangular-blocks)
@@ -497,6 +498,51 @@ sed: -e expression #1, char 90: invalid reference \2 on `s' command's RHS
 ```
 
 This was fixed by separate switches `-i` for inplace and `-E` for modern regexps...
+
+## Selenium example to drive web browser
+
+Prereqs:
+-	Install python:  Type `python` in cmd window (win10)
+-	Install selenium: Then type `pip install selenium` 
+-	Download geckodriver.exe into your home folder (say)
+- Run `python C:\Users\<user>\startmytest.py` (i.e. this script):
+
+```
+from selenium import webdriver
+import time
+from selenium.webdriver.support.ui import Select
+# FFox: F12 -> console, Pick an element via picker, Rightmouse:Copy->Xpath
+xpaths={
+    'user' : '//*[@id="j_username"]',
+    'pass' : '//*[@id="j_password"]',
+    'submit' : '/html/body/div[2]/div[2]/div/div/form/table/tbody/tr[3]/td[2]/button',
+    'tab_test' : '//*[@id="Register99Test"]',
+    'edit_icon' : '//*[@id="editAction"]', 
+    'server_fixture' : '/html/body/div[2]/div[2]/div/div/form[2]/table[2]/tbody/tr[3]/td[3]/select',
+    'submit_fixture' : '//*[@id="Finish"]',
+    'link_fixture' : '/html/body/div[2]/div[2]/div/table[2]/tbody/tr[11]/td[2]/a',    
+}
+driver = webdriver.Firefox(executable_path=r'C:\Users\eFR01\geckodriver.exe')
+
+# Login
+driver.get("http://red:8280/nil/main.jsp")
+driver.find_element_by_xpath(xpaths['user']).send_keys('admlp')
+driver.find_element_by_xpath(xpaths['pass']).send_keys('sybasesucks') #keep script in safe place
+driver.find_element_by_xpath(xpaths['submit']).click()
+time.sleep(0.5) #page load slow
+
+# Load server fixture
+driver.find_element_by_xpath(xpaths['tab_test']).click()
+driver.find_element_by_xpath(xpaths['edit_icon']).click()
+Select(driver.find_element_by_xpath(xpaths['server_fixture'])).select_by_visible_text('NeMitgliedServerFixture')
+# OR find_element_by_xpath("/html/body.. ../select/option[text()='NeMitgliedServerFixture']").click() # https://stackoverflow.com/a/7972225/7409029
+driver.find_element_by_xpath(xpaths['submit_fixture']).click()
+time.sleep(2.8) #page load very slow
+driver.find_element_by_xpath(xpaths['link_fixture']).click()
+
+# Bingo! If the fixture was created you should now be looking at it..
+```
+
 
 ## Vi editor
 
